@@ -1,0 +1,28 @@
+@if (showLoader()) {
+  <app-loader (finished)="onLoaderFinished()" />
+}
+
+<app-atmosphere />
+<app-header [stuck]="isHeaderStuck()" />
+<app-time-slider />
+
+<main class="scroll-area">
+  <div class="hero-spacer" [style.height.px]="morphDistance()"></div>
+
+  <section class="dashboard-home" [style.opacity]="homeOpacity()" [style.transform]="homeTransform()">
+    <h1>Hi, this is your dashboard</h1>
+    <p>Home works — Study, Plan, and Notes are up top whenever you need them.</p>
+  </section>
+</main>
+
+<section
+  class="hero"
+  [style.opacity]="heroOpacity()"
+  [style.transform]="heroTransform()"
+  [style.filter]="heroFilter()"
+  [style.pointer-events]="heroInert() ? 'none' : 'auto'"
+>
+  <div class="wordmark" #wordmark>光 Hikari</div>
+  <div class="tagline" #tagline>From asa to yoru.</div>
+  <div class="phase-label" #phaseLabel>{{ theme.label() }}</div>
+</section>

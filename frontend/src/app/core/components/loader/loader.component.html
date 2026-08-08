@@ -1,0 +1,9 @@
+<div class="loader" #root>
+  <div class="blob" #blob></div>
+
+  <div class="slogan">
+    @for (word of sloganWords; track $index) {
+      <span #word class="word" [class.accent]="word === 'asa' || word === 'yoru.'">{{ word }}</span>
+    }
+  </div>
+</div>

@@ -1,0 +1,29 @@
+:root {
+  --bg: #f5f7fc;
+  --primary: #8b82c9;
+  --secondary: #a9b9e8;
+  --accent: #89b9d9;
+  --text: #25283a;
+  --muted: #687086;
+  --border: #dee3f0;
+  --glow: #c8d6f4;
+
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+}

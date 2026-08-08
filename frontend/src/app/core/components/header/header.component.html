@@ -1,0 +1,19 @@
+<header class="header" [class.stuck]="stuck">
+  <div class="brand">光 Hikari</div>
+
+  <nav class="nav">
+    @for (item of items; track item) {
+      <button
+        type="button"
+        [class.active]="active() === item"
+        (click)="select(item)"
+      >
+        {{ item }}
+      </button>
+    }
+  </nav>
+</header>
+
+@if (message()) {
+  <div class="toast">{{ message() }}</div>
+}

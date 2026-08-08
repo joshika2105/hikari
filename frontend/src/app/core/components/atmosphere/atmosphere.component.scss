@@ -1,0 +1,64 @@
+.field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: var(--bg);
+  transition: background 0.35s ease;
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(64px);
+  transition: background 0.35s ease, opacity 0.35s ease;
+  will-change: transform;
+}
+
+.b1 {
+  width: 50vw;
+  height: 50vw;
+  top: -14vw;
+  left: -10vw;
+  opacity: 0.8;
+}
+.b2 {
+  width: 42vw;
+  height: 42vw;
+  bottom: -16vw;
+  right: -8vw;
+  opacity: 0.7;
+}
+.b3 {
+  width: 36vw;
+  height: 36vw;
+  top: 26vh;
+  right: 6vw;
+  opacity: 0.6;
+}
+.b4 {
+  width: 30vw;
+  height: 30vw;
+  bottom: 4vh;
+  left: 14vw;
+  opacity: 0.55;
+}
+.b5 {
+  width: 60vw;
+  height: 60vw;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  opacity: 0.28;
+  filter: blur(100px);
+  mix-blend-mode: overlay;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

@@ -1,0 +1,108 @@
+.header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+
+  // At rest, the header has no chrome — it just floats over the aura.
+  background: transparent;
+  backdrop-filter: none;
+  border: 1px solid transparent;
+  box-shadow: none;
+  transform: translate(-50%, -4px);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease,
+    backdrop-filter 0.4s ease, transform 0.4s ease;
+
+  &.stuck {
+    background: color-mix(in srgb, var(--bg) 55%, white 15%);
+    backdrop-filter: blur(20px) saturate(140%);
+    border-color: color-mix(in srgb, var(--border) 80%, transparent);
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--glow) 30%, transparent);
+    transform: translate(-50%, 0);
+  }
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+
+  button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.84rem;
+    padding: 7px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+
+    &:hover {
+      color: var(--text);
+    }
+
+    &.active {
+      background: var(--primary);
+      color: white;
+    }
+  }
+}
+
+.toast {
+  position: fixed;
+  top: 78px;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 21;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg) 55%, white 15%);
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 500;
+  animation: toastPop 0.25s ease;
+}
+
+@keyframes toastPop {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) translateX(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    gap: 14px;
+    padding: 8px 14px;
+  }
+  .brand {
+    font-size: 0.95rem;
+  }
+  .nav button {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+}

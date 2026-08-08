@@ -1,0 +1,40 @@
+<div class="dock">
+  <button
+    type="button"
+    class="toggle"
+    [class.open]="isOpen()"
+    (click)="toggle()"
+    aria-label="Adjust time of day"
+  >
+    <span class="dot"></span>
+    <span class="time">{{ theme.clock() }}</span>
+  </button>
+
+  <div class="panel" [class.open]="isOpen()">
+    <div class="readout">
+      <span class="clock">{{ theme.clock() }}</span>
+      <span class="phase">{{ theme.label() }}</span>
+    </div>
+
+    <input
+      type="range"
+      min="0"
+      max="1439"
+      step="1"
+      [value]="theme.minute()"
+      (input)="onSlide($event)"
+    />
+
+    <div class="presets">
+      @for (name of theme.presetNames; track name) {
+        <button
+          type="button"
+          [class.active]="theme.activePreset() === name"
+          (click)="theme.setPreset(name)"
+        >
+          {{ name | titlecase }}
+        </button>
+      }
+    </div>
+  </div>
+</div>
